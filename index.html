@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale= 1.0">
+        <meta name="description" content="ISANA.DEV - Web Developer from Eldoret,Silicon Savannah. I build fast,offline-first websites that bring customers to local shops,even on slower bundles">
+        <link rel="stylesheet" href="style.css">
+        <title>ISANA.DEV|Websites That Bring Customes - Eldoret</title>
+    </head>
+    <body>
+        
+        <div class="header-box">
+            <h1>ISANA.DEV</h1>
+            <p>I build fast websites that bring customers to shops in Eldoret -- works even on slower bundles</p>
+        </div>
+
+        <div class="content-box">
+            <div class="left">
+                <h2>About Me</h2>
+                <p>Hi,I'm ISANA from Eldoret. I help local businesses get online with sites that load fast,work offline,and make it easy for customers to WhatsApp you.</p>
+
+                <h3>My Skills</h3>
+                <p>I know:</p>
+                <ul>
+                    <li>Python</li>
+                    <li>HTML</li>
+                    <li>JavaScript</li>
+                    <li>CSS $ WhatsApp Bots</li>
+                    <li>offline-first,fast loading</li>
+                </ul>
+                <h3>Contact Me</h3>
+                <p>Fastest reply on WhatsApp</p>
+                <a class="wa-btn" href="https://wa.me/254113662877" target="_blank">chat on WhatsApp</a>
+                <a href="https://github.com/isana" target="_blank">Github</a>
+                <a href="mailto:isana.nexus777@gmail,com">Email</a>
+            </div>
+
+            <div class="right">
+                <span class="badge">Featured work</span>
+                <img src="kali.jpeg" alt="ISANA - Web Developer from Eldoret" loading="lazy">
+                <p style="margin-top: 10px; font-size: 13px; color: #555;">Currently exploring cybersecurity with Kali Linux -- same focus I use to make sites secure.</p>
+            </div>
+        </div>
+        <div class="projects-section">
+            <h2>My Projects</h2>
+            <p style="margin-bottom: 20px; color: #666; font-size: 14px;">Real work for real businesses</p>
+            <div class="projects-wrap">
+                <div class="project-card">
+                    <h4>Business Website</h4>
+                    <p style="font-size: 13px; margin: 8px 0;">A one page site for a shop in Eldoret -- Loads in 2s on 3G,WhatsApp button built-in.</p>
+                    <a href="#">View Demo -></a>
+                </div>
+                <div class="project-card">
+                    <h4>WhatsApp Bot</h4>
+                    <p style="font-size: 13px; margin: 8px 0;">Auto-replies for orders & FAQS,saves bundles,never misses a customer</p>
+                    <a href="#">See How it works -></a>
+                </div>
+                <div class="project-card">
+                    <h4>ISANA.DEV portfolio</h4>
+                    <p style="font-size: 13px; margin: 8px 0;">This site -- 100% offline-built,mobile-first,linked CSS.</p>
+                    <a href="#">You are here -></a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="button-box">
+            <button id="myButton">Say Hi</button>
+            <button class="feedback-btn" onclick="askFeedback()">Give Feedback</button>
+        </div>
+        <footer>Built by ISANA from Eldoret. 2026. Silicon Savannah</footer>
+        <script>
+            document.getElementById('myButton').addEventListener('click',()=>{alert('Sasa! Thanks for checking ISANA.DEV.Need a site? WhatsApp me!')});
+            function askFeedback(){
+                let name = prompt('What\'s your name? ');
+                if(!name){
+                    return;
+                }
+                let idea = prompt(`Nice ${name}! What should I improve on this site? `);
+                if(idea){
+                    alert(`Asante ${name}! I will fix it!`);
+                };
+                console.log(`Feedback from ${name}: ${idea}`);
+            }
+        </script>
+    </body>
+</html>
