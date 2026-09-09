@@ -1,51 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Mama Njeri Groceries-Eldoret | Fresh Daily, WhatsApp order</title>
+        <title>Mama Njeri Groceries - Eldoret</title>
         <style>
-            body{font-family: Arial,sans-serif; margin: 0; background: #f5f7fb; color: #222}
-            header{background: #0f2d5a; color: white; padding: 40px 20px; text-align-last: center}
-            header h1{margin: 0;font-size: 32px}
-            header p{opacity: 0.9;}
-            .card{max-width: 700px; margin: -30px auto 20px; background: white; border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1)}
-            .price{display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee}
-            .wa-btn{display: block; background: #25d366; color: white; text-align: center; padding: 16px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 20px; font-size: 18px}
-            .badge{background: #e6efff; color: #0f2d5a;padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: bold}
-            footer{text-align: center; padding: 20px; color: #777; font-size: 13px}
+            *{box-sizing: border-box;margin: 0; padding: 0; font-family: Arial}
+            body{background: #f5f5f5}
+            .header{background: #111; color: #ffd700; padding: 20px; text-align: center}
+            .header h1{font-size: 22px}
+            .card-bar{position: sticky; top: 0; background: #25D366; color: white; padding: 12px; text-align: center; font-weight: bold; z-index: 10}
+            .products{display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px}
+            .card{background: white; padding: 12px; border-radius: 10px; text-align: center; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1)}
+            .card h3{font-size: 16px; margin: 6px 0}
+            .price{color: #25D366; font-weight: bold}
+            .btn{width: 100%; margin-top: 8px; background: #111; color: #ffd700; border: 1px solid #ffd700; padding: 10px; border-radius: 8px; font-weight: bold}
+            .btn:hover{background: #ffd700; color: #111}
+            .mpesabox{background: white; margin: 12px; padding: 15px; border-radius: 10px; border-left: 5px solid #25D366}
+            .orderbtn{display: block; background: #25D366; color: white; text-align: center; padding: 16px; border-radius: 10px; text-decoration: none; font-weight: bold; margin: 12px; font-size: 18px}
+            .orderbtn:hover{background: #128c7e}
         </style>
     </head>
     <body>
         
-        <header>
-            <span class="badge">ELDORET . SAME DAY DELIVERY</span>
-            <h1>Mama Njeri Groceries</h1>
-            <p>Fresh sukuma, tomatoes, onions. Order on WhatsApp, delivered in 2 hours.</p>
-        </header>
+    <div class="header">
+        <h1>MAMA NJERI GROCERIES - BUTERE</h1>
+        <p>Fresh daily / Pay via M-Pesa</p>
+    </div>
+
+    <div class="cart-bar" id="cardBar">
+        Cart: 0 items - KES 0
+    </div>
+
+    <div class="products">
+        
+        <div class="card">
+            <h3>Tomatoes</h3>
+            <p class="price">KES 30 / kg</p>
+            <button class="btn" onclick="addItem('Tomatoes',30)">Add</button>
+        </div>
+        <div class="card">
+            <h3>Sukuma</h3>
+            <p class="price">KES 50 / bunch</p>
+            <button class="btn" onclick="addItem('Sukuma',50)">Add</button>
+        </div>
 
         <div class="card">
-            <h2>Today's Price List</h2>
-            <div class="price">
-                <span>Sukuma Wiki(bunch)</span>
-                <strong>KES 30</strong>
-            </div>
-            <div class="price">
-                <span>Tomatoes (kg)</span>
-                <strong>KES 80</strong>
-            </div>
-            <div class="price">
-                <span>Onions (kg)</span>
-                <strong>KES 100</strong>
-            </div>
-            <div class="price">
-                <span>Potatoes (kg)</span>
-                <strong>KES 90</strong>
-            </div>
-            <p style="font-size: 14px; color: #555; margin-top: 20px;">Loads in 2s on 3G. Works offline. No bundles wasted.</p>
-            <a class="wa-btn" href="https://wa.me/254113662877?text=Habari%20Mama%20Njeri, %20nataka%20kuorder%20groceries" target="_blank">Order on WhatsApp</a>
-            <p style="font-size: 12px; text-align: center; margin-top: 10px;">Built by ISANA.DEV - Websites that bring customers</p>
+            <h3>Potatoes</h3>
+            <p class="price">KES 80 / kg</p>
+            <button class="btn" onclick="addItem('Potatoes',80)">Add</button>
         </div>
-        <footer>Demo by ISANA from Eldoret. Want one for your shop? WhatsApp me</footer>
+
+        <div class="card">
+            <h3>Onions</h3>
+            <p class="price">KES 100 / kg</p>
+            <button class="btn" onclick="addItem('Onions',100)">Add</button>
+        </div>
+
+        <div class="card">
+            <h3>Avocado</h3>
+            <p class="price">KES 40 / pc</p>
+            <button class="btn" onclick="addItem('Avocado',40)">Add</button>
+        </div>
+
+        <div class="card">
+            <h3>Eggs</h3>
+            <p class="price">KES 400 / tray</p>
+            <button class="btn" onclick="addItem('Eggs',400)">Add</button>
+        </div>
+
+
+    </div>
+
+    <div class="mpesabox">
+        <strong>Lipa na M-Pesa</strong>
+        Till: 3232243 - Isaac <br>
+        Send screenshort after paying.
+    </div>
+
+    <a href="#" class="orderbtn" id="whatsappBtn">Order on WhatsApp</a>
+
+    <script>
+        let cart = [];
+        let total = 0;
+        
+        function addItem(name,price){
+            cart.push(name);
+            total += price;
+
+            document.getElementById('cardBar').innerText = `Cart: ${cart.length} items - KES ${total}`;
+            
+            let msg = `Hello Mama Njeri! I want: ${cart.join(',')} Total KES ${total}`;
+
+            document.getElementById('whatsappBtn').href = `https://wa.me/254113662877?text=${encodeURIComponent(msg)}`;
+        }
+        
+    </script>
     </body>
 </html>
