@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Mama Njeri Groceries - Eldoret</title>
         <style>
             *{box-sizing: border-box;margin: 0; padding: 0; font-family: Arial}
-            body{background: #f5f5f5}
-            .header{background: #111; color: #ffd700; padding: 20px; text-align: center}
+            body{background: #f5f5f5; font-family: Arial,sans-serif; margin: 0; padding-bottom: 100px}
+            .header{background: #111; color: #ffcc00; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000;}
             .header h1{font-size: 22px}
             .card-bar{position: sticky; top: 0; background: #25D366; color: white; padding: 12px; text-align: center; font-weight: bold; z-index: 10}
             .products{display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px}
             .card{background: white; padding: 12px; border-radius: 10px; text-align: center; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1)}
             .card h3{font-size: 16px; margin: 6px 0}
             .price{color: #25D366; font-weight: bold}
-            .btn{width: 100%; margin-top: 8px; background: #111; color: #ffd700; border: 1px solid #ffd700; padding: 10px; border-radius: 8px; font-weight: bold}
+            .btn{width: 100%; margin-top: 8px; background: #25D366; color: white; border: 1px solid #ffd700; padding: 10px; border-radius: 8px; font-weight: bold}
             .btn:hover{background: #ffd700; color: #111}
-            .mpesabox{background: white; margin: 12px; padding: 15px; border-radius: 10px; border-left: 5px solid #25D366}
+            .mpesabox{background: #128c7e; margin: 12px; padding: 15px; border-radius: 10px; border-left: 5px solid #25D366;color: #ffd700; font-weight: bold;}
             .orderbtn{display: block; background: #25D366; color: white; text-align: center; padding: 16px; border-radius: 10px; text-decoration: none; font-weight: bold; margin: 12px; font-size: 18px}
             .orderbtn:hover{background: #128c7e}
+            .cart-bar{background: #128c7e; color: #ffd700; padding: 20px; text-align: center; border-radius: 10px; margin-top: 20px; margin: 12px;}
+            #mpesa-box{background: #e8f5e9; border: 2px solid #25D366; padding: 12px; margin: 12px; border-radius: 10px; text-align: center;}
         </style>
     </head>
     <body>
@@ -28,73 +32,161 @@
         <p>Fresh daily / Pay via M-Pesa</p>
     </div>
 
-    <div class="cart-bar" id="cardBar">
-        Cart: 0 items - KES 0
+    <div id="cart-bar" style="background: black; color: white; padding: 12px; text-align: center;">Cart: 0 items - KES 0</div>
+    <div id="mpesa-box">
+        <b>Lipa na M-PESA</b><br>
+        Till Number: <b style="font-size: 18px;">3232243</b><br>
+        <small>Name: @Imarkets</small><br>
+        <small style="color: red;">Pay first, then send screenshort on WhatsApp</small>
     </div>
+    
+    <div id="cartItems" style="background: #128c7e; color: white; padding: 15px; margin: 12px; border-radius: 10px;">No items yet. Please choose products below</div>
+    <div id="cartTotal" style="text-align: center; font-weight: bold;"></div>
+    <a id="orderBtn" href="javascript: void(0)" target="_blank" style="display: none; background: #25D366; color: white; padding: 16px; margin: 12px; border-radius: 10px; text-align: center; text-decoration: none; font-weight: bold;">Order on WhatsApp</a>
+
 
     <div class="products">
         
         <div class="card">
             <h3>Tomatoes</h3>
             <p class="price">KES 30 / kg</p>
-            <button class="btn" onclick="addItem('Tomatoes',30)">Add</button>
+            <button class="btn" onclick="addItem('Tomatoes', 30)">Add</button>
         </div>
         <div class="card">
             <h3>Sukuma</h3>
             <p class="price">KES 50 / bunch</p>
-            <button class="btn" onclick="addItem('Sukuma',50)">Add</button>
+            <button class="btn" onclick="addItem('Sukuma', 50)">Add</button>
         </div>
 
         <div class="card">
             <h3>Potatoes</h3>
             <p class="price">KES 80 / kg</p>
-            <button class="btn" onclick="addItem('Potatoes',80)">Add</button>
+            <button class="btn" onclick="addItem('Potatoes', 80)">Add</button>
         </div>
 
         <div class="card">
             <h3>Onions</h3>
             <p class="price">KES 100 / kg</p>
-            <button class="btn" onclick="addItem('Onions',100)">Add</button>
+            <button class="btn" onclick="addItem('Onions', 100)">Add</button>
         </div>
 
         <div class="card">
             <h3>Avocado</h3>
             <p class="price">KES 40 / pc</p>
-            <button class="btn" onclick="addItem('Avocado',40)">Add</button>
+            <button class="btn" onclick="addItem('Avocado', 40)">Add</button>
         </div>
 
         <div class="card">
             <h3>Eggs</h3>
             <p class="price">KES 400 / tray</p>
-            <button class="btn" onclick="addItem('Eggs',400)">Add</button>
+            <button class="btn" onclick="addItem('Eggs', 400)">Add</button>
         </div>
 
 
     </div>
 
     <div class="mpesabox">
-        <strong>Lipa na M-Pesa</strong>
-        Till: 3232243 - Isaac <br>
-        Send screenshort after paying.
+        <strong>Alternative payment method</strong> <br>
+        <strong>Complete payments Using Bank account</strong><br>
+        Pay Bill: 8884422 <br>
+        Account Number: 0718222970 - @Imarkets <br>
+        1. Deposit <br>
+        2 Screenshort account statement <br>
+        3. Click Order on WhatsApp + attatch screenshort
+        4. We deliver within 1 hour in Butere
     </div>
 
-    <a href="#" class="orderbtn" id="whatsappBtn">Order on WhatsApp</a>
+    <a href="#" class="orderbtn" id="orderBtn">Order on WhatsApp</a>
 
     <script>
-        let cart = [];
+
+        let cart = {};
         let total = 0;
-        
-        function addItem(name,price){
-            cart.push(name);
-            total += price;
 
-            document.getElementById('cardBar').innerText = `Cart: ${cart.length} items - KES ${total}`;
-            
-            let msg = `Hello Mama Njeri! I want: ${cart.join(',')} Total KES ${total}`;
+        function addItem(name, price){
+            if(cart[name]){
+                cart[name].qty += 1;
+            }else{
+                cart[name] = {price: price, qty: 1};
+            }
 
-            document.getElementById('whatsappBtn').href = `https://wa.me/254113662877?text=${encodeURIComponent(msg)}`;
+            updateCart();
         }
+
+        function removeItem(name){
+            if(!cart[name]) return;
+            if(cart[name].qty > 1){
+                cart[name].qty -= 1;
+            }else{
+                delete cart[name];
+            }
+
+            updateCart();
+
+        }
+
+        function updateCart(){
+            let listDiv = document.getElementById('cartItems');
+            let totalDiv = document.getElementById('cartTotal');
+            let barDiv = document.getElementById('cart-bar');
+            let waBtn = document.getElementById('orderBtn');
+
+            total = 0;
+            let itemCount = 0;
+            let html = "";
+            let whatsAppItems = [];
+
+
+            for(let name in cart){
+                let item = cart[name];
+                let subTotal = item.price * item.qty;
+                total += subTotal;
+                itemCount += item.qty;
+
+
+                html +=`
+                
+                <div style="background: white; color: black; padding: 10px; margin: 5px 0; border-radius: 5px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #ddd;">
+                    <span><b>${name}</b> [${item.qty}] - ${subTotal} Ksh</span>
+                    <button onclick="removeItem('${name.replace(/'/g, "\\'")}')" style="background: #ffdddd; color: red; border: 1px solid red; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-weight; bold;">X Remove</button>
+                </div>
+                `;
+
+                whatsAppItems.push(`${name} [${item.qty}] = ${subTotal} Ksh`)
+
+            }
+
+            barDiv.innerText = `Cart: ${itemCount} items - KES ${total} Free delivery in Butere`;
+
+            if(itemCount === 0){
+                listDiv.innerHTML = "No items yet. Please choose products below.";
+                totalDiv.innerHTML = "";
+                waBtn.style.display = "none";
+                return;
+            }
+
+            listDiv.innerHTML = html;
+            totalDiv.innerHTML = `Total: KES ${total}`;
+            waBtn.style.display = "block";
+
+
+            let msg = `Hello Mama Njeri Groceries, I want to order: \n${whatsAppItems.join("\n")}\n\nTotal: KES${total}\nI have paid via Till 3232243. I will send M_PESA screenshot.\nMy delivery location:`;
+            
+
+            let waUrl = `https://wa.me/254113662877?text=${encodeURIComponent(msg)}`;
+            waBtn.href = waUrl;
+            waBtn.onclick = function(e){
+                e.preventDefault();
+                window.open(waUrl, '_blank');
+            };
+        }
+
+
+
+        window.removeItem = removeItem;
+
         
     </script>
+        
     </body>
 </html>
