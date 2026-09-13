@@ -2,89 +2,146 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale= 1.0">
-        <meta name="description" content="ISANA.DEV - Web Developer from Eldoret,Silicon Savannah. I build fast,offline-first websites that bring customers to local shops,even on slower bundles">
-        <link rel="stylesheet" href="style.css">
-        <title>ISANA.DEV|Websites That Bring Customes - Eldoret</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Isana Nexus - Web Developer | Nairobi</title>
+
+        <style>
+            *{margin: 0; padding: 0; box-sizing: border-box}
+            body{font-family: Inter,system-ui,sans-serif; color: #111; line-height: 1.6; background: #fff}
+            header{padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 10}
+            .logo{font-weight: 800; font-size: 20px}
+            .logo span{color: #2563eb}
+            nav a{margin-left: 24px; text-decoration: none; color: #111; font-weight: 500}
+            .hero{padding: 80px 5%; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; max-width: 1200px; margin: auto}
+            .h-badge{background: #eff6ff; color: #2563eb; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; display: inline-block; margin-bottom: 16px}
+            .hero h1{font-size: 52px; line-height: 1.1; margin-bottom: 16px}
+            .hero h1 span{color: #2563eb}
+            .hero p{color: #555; font-size: 18px; margin-bottom: 28px}
+            .btns{display: flex; gap: 12px}
+            .btn{padding: 12px 22px; border-radius: 8px; text-decoration: none; font-weight: 600; border: 1px solid #111}
+            .btn-primary{background: #111; color: #fff}
+            .btn-outline{background: #fff; color: #111}
+            .photo-box{width: 340px; height: 340px; background: #f3f4f6; border-radius: 24px; display: flex; align-items: center; font-size: 96px; font-weight: 800; color: #2563eb; margin: auto; border: 1px solid #e5e7eb}
+            section{padding: 70px 5%; max-width: 1200px; margin: auto}
+            .sec-title{font-size: 32px; margin-bottom: 12px}
+            .sec-sub{color: #666; margin-bottom: 36px}
+            .grid3{display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px}
+            .card{border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px}
+            .cart h3{margin-bottom: 8px}
+            .skill-tags{display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px}
+            .tag{border: 1px solid #e5e7eb; padding: 8px 14px; border-radius: 20px; font-size: 14px}
+            .project{border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden}
+            .project-info{padding: 20px}
+            .card a, .btn, button{transition: all 0.2s ease; display: inline-block}
+            .card a:hover{transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); opacity: 0.9}
+            a[style*="background: #111"]:hover{background: #0066ff}
+            a[style*="background: #25d366"]:hover{background: #128c7e}
+            a[style*="background: white"]:hover{background: #111; color: white}
+            .card:hover{transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); border-color: #111}
+            .footer{border-top: 1px solid #eee; padding: 30px 5%; text-align: center; color: #666; margin-top: 40px}
+            @media(max-width:800px){.hero{grid-template-columns: 1fr}.hero h1{font-size: 38px}.grid3{grid-template-columns: 1fr}.photo-box{width: 100%; height: 280px}}
+        </style>
     </head>
     <body>
         
-        <div class="header-box">
-            <h1>ISANA.DEV</h1>
-            <p>I build fast websites that bring customers to shops in Eldoret -- works even on slower bundles</p>
-        </div>
+        <header>
+            <div class="logo">ISANA<span>.DEV</span></div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#work">work</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
 
-        <div class="content-box">
-            <div class="left">
-                <img src="./isana.png" alt="ISANA from Eldoret" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid #25d366; margin-bottom: 12px; display: block; object-position: top; overflow: hidden; margin: 0 auto 15px auto;">
-
-                <h2>About Me</h2>
-                <p>Hi,I'm ISANA from Eldoret. I help local businesses get online with sites that load fast, work offline, and make it easy for customers to WhatsApp you.</p>
-
-                <h3>My Skills</h3>
-                <p>I know:</p>
-                <ul>
-                    <li>Python</li>
-                    <li>HTML</li>
-                    <li>JavaScript</li>
-                    <li>CSS & WhatsApp Bots</li>
-                    <li>offline-first,fast loading</li>
-                </ul>
-                <h3>Contact Me</h3>
-                <p>Fastest reply on WhatsApp</p>
-                <a class="wa-btn" href="https://wa.me/254113662877" target="_blank">chat on WhatsApp</a>
-                <a href="https://github.com/isanaw2030" target="_blank">Github</a>
-                <a href="mailto:isana.nexus777@gmail,com">Email</a>
-            </div>
-
-            <div class="right">
-                <span class="badge">Featured work</span>
-                <img src="kali.jpeg" alt="ISANA - Web Developer from Eldoret" loading="lazy">
-                <p style="margin-top: 10px; font-size: 13px; color: #555;">Currently exploring cybersecurity with Kali Linux -- same focus I use to make sites secure.</p>
-            </div>
-        </div>
-        <div class="projects-section">
-            <h2>My Projects</h2>
-            <p style="margin-bottom: 20px; color: #666; font-size: 14px;">Real work for real businesses</p>
-            <div class="projects-wrap">
-                <div class="project-card">
-                    <h4>Business Website</h4>
-                    <p style="font-size: 13px; margin: 8px 0;">A one page site for a shop in Eldoret -- Loads in 2s on 3G, WhatsApp button built-in.</p>
-                    <a href="#">View Demo -></a>
+        <div class="hero">
+            <div>
+                <div class="h-badge">Available for new projects - Nairobi</div>
+                <h1>I'm Isana Nexus,<br><span>Web Developer</span> based in Nairobi</h1>
+                <p>I recently moved to Nairobi to focus on programming full-time. I build fast, clean and professional websites for businesses and startups.</p>
+                <div class="btns">
+                    <a class="btn btn-primary" href="#work">View My Work</a>
+                    <a class="btn btn-outline" href="#contact">Contact Me</a>
                 </div>
-                <div class="project-card">
-                    <h4>WhatsApp Bot</h4>
-                    <p style="font-size: 13px; margin: 8px 0;">Auto-replies for orders & FAQS, saves bundles, never misses a customer</p>
-                    <a href="#">See How it works -></a>
-                </div>
-                <div class="project-card">
-                    <h4>ISANA.DEV portfolio</h4>
-                    <p style="font-size: 13px; margin: 8px 0;">This site -- 100% offline-built, mobile-first, linked CSS.</p>
-                    <a href="#">You are here -></a>
-                </div>
-
             </div>
+            <div class="photo-box"><img src="isana2.jpg" alt="Isana Nexus" style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px;"></div>
         </div>
-        <a href="shop-demo.html" class="demo-btn">View Live Shop Demo</a>
 
-        <div class="button-box">
-            <button id="myButton">Say Hi</button>
-            <button class="feedback-btn" onclick="askFeedback()">Give Feedback</button>
-        </div>
-        <footer>Built by ISANA from Eldoret. 2026. Silicon Savannah</footer>
-        <script>
-            document.getElementById('myButton').addEventListener('click',()=>{alert('Sasa! Thanks for checking ISANA.DEV. Need a site? WhatsApp me!')});
-            function askFeedback(){
-                let name = prompt('What\'s your name? ');
-                if(!name){
-                    return;
-                }
-                let idea = prompt(`Nice ${name}! What should I improve on this site? `);
-                if(idea){
-                    alert(`Asante ${name}! I will fix it!`);
-                };
-                console.log(`Feedback from ${name}: ${idea}`);
-            }
-        </script>
+
+        <section id="about">
+            <h2 class="sec-title">About Me</h2>
+            <p class="sec-sub">Who I am and what I'm focussed on right now.</p>
+            <div class="grid3">
+                <div class="card">
+                    <h3>From Eldoret to Nairobi</h3>
+                    <p>Started coding in Eldoret, now in Nairobi learning programming full-time and building real projects for real businesses.</p>
+                </div>
+                <div class="card">
+                    <h3>My Focus</h3>
+                    <p>Clean websites that load fast, look professional on phone, and help small businesses get customers online.</p>
+                </div>
+                <div class="card">
+                    <h3>Next Goal</h3>
+                    <p>Master JavaScript, then build interactive web apps. Currently learning and documenting my journey.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="sec-title">What I Do</h2>
+            <div class="grid3">
+                <div class="card"><h3>Business Websites</h3><p>Professional sites for shops, salons and startups in Kenya.</p></div>
+                <div class="card"><h3>Portfolio & Landing Pages</h3><p>Fast, mobile-first pages that convert visitors to customers.</p></div>
+                <div class="card"><h3>Deployment & Setup</h3><p>Github, Netlify, Domain connection, and making it live for the world.</p></div>
+            </div>
+            <div class="skill-tags">
+                <div class="tag">HTML5</div><div class="tag">CSS3</div><div class="tag">Git & Github</div><div class="tag">Netlify</div><div class="tag">Responsive Design</div><div class="tag">Learning JavaScript</div>
+            </div>
+        </section>
+
+        <section id="work">
+            <h2 class="sec-title">Projects</h2>
+            <p class="sec-sub">Selected work - more coming as I learn JavaScript.</p>
+            <div class="grid3">
+                <div class="project">
+                    <div style="height: 160px; background: #f3f4f6; display: flex; align-items: center; justify-content: center;">Mama Njeri</div>
+                    <div class="project-info">
+                        <h3>Mama Njeri Groceries</h3>
+                        <p>Concept e-commerce site for local grocery business. Built with HTML/CSS deployed on Netlify.</p>
+                        <br><a href="./shop-demo.html" target="_blank" style="background: #111; color: white; padding: 8px 14px; border-radius: 8px; font-size: 13px; text-decoration: none; font-weight: bold">View live =></a>
+                    </div>
+                </div>
+                <div class="project">
+                    <div style="height: 160px; background: #eff6ff; display: flex; align-items: center; justify-content: center;">Portfolio v1</div>
+                    <div class="project-info">
+                        <h3>This Portfolio</h3>
+                        <p>The site you are on right now. Clean, professional, built to grow with my skills.</p>
+                        <br><a href="#" style="background: #111; color: white; padding: 8px 14px; border-radius: 8px; font-size: 13px; text-decoration: none; font-weight: bold">You are here</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <div style="height: 160px; background: #fafafa; display: flex; align-items: center; justify-content: center; border: 1px dashed #ccc;">+ New</div>
+                    <div class="project-info">
+                        <h3>JavaScript project - Soon</h3>
+                        <p>After we start JavaScript, this slot will be my first interactive app.</p>
+                        <br><span style="color: #888; background: #f2f2f2; padding: 8px 14px; border-radius: 8px; font-size: 13px; text-decoration: none; font-weight: bold">Coming sooon</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="sec-title">Let's Work Together</h2>
+            <p class="sec-sub">I'm in Nairobi and available for freelance projects.</p>
+            <div class="card">
+                <p><strong>WhatsApp:</strong>Dm me on WhatsApp</p>
+                <p><strong>Github:</strong>github.com/isana nexus/isana-dev</p>
+                <p><strong>Location:</strong>Nairobi, Kenya</p>
+                <p><strong>Websites:</strong>isana-dev.netlify.app</p>
+                <br>
+                <a class="btn btn-primary" href="https://wa.me/254113662877">Chat on WhatsApp</a>
+            </div>
+        </section>
+
+        <div class="footer">&copy; 2026 Isana Nexus - Built in Nairobi with focus. Last Updated: Today</div>
     </body>
 </html>
