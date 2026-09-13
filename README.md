@@ -3,7 +3,7 @@ I build fast, offline-first websites + WhatsApp bots for shops in Eldoret => Ken
 Built 100% offline on Android. Loads in 2s on 3G
 
 ## Live Site
--Portfolio:https:isanadev.netfly.app
+-Portfolio:https://isanadev.netfly.app
 
 ## What I DO
 - One-page business sites (KES 1k - 3k)
