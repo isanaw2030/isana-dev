@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head><title>ISANA Shop - Day 7</title>
-<style>
-body{font-family:Arial;padding:20px;display:flex;gap:20px}
-#shop{flex:2}
-#cart{flex:1;border:2px solid #000;padding:15px;position:sticky;top:20px;height:fit-content}
-.product{border:1px solid #ddd;padding:15px;margin:10px 0;border-radius:8px}
-.out{opacity:0.5}
-button{background:black;color:white;padding:8px 15px;border:none;border-radius:5px;cursor:pointer}
-</style>
+<head>
+<title>ISANA - Bahati Drip | Day 8</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
-<div id="shop"></div>
-<div id="cart">
-  <h2>Cart (<span id="cart-count">0</span>)</h2>
-  <div id="cart-items"></div>
-  <h3>Total: KES <span id="cart-total">0</span></h3>
-  <button onclick="checkout()" style="width:100%;background:green">Checkout - M-Pesa</button>
-  <button onclick="cart=[];renderCart()" style="width:100%;background:#ccc;color:#000;margin-top:5px">Clear Cart</button>
-</div>
-<script src="07-pro-cart.js"></script>
+<body class="bg-[#f5f5f5] min-h-screen p-4 lg:p-8">
+  <div class="max-w-7xl mx-auto">
+    <h1 class="text-4xl font-black tracking-tight">ISANA<span class="font-light">.</span> <span class="text-sm font-normal bg-black text-white px-2 py-1 rounded">BAHATI</span></h1>
+    <p class="text-gray-600 mb-6">Premium streetwear - Made in Rift Valley</p>
+
+    <div class="flex flex-col lg:flex-row gap-6">
+      <!-- SHOP -->
+      <div id="shop" class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-[2]"></div>
+
+      <!-- CART -->
+      <div id="cart" class="bg-white border-2 border-black p-6 h-fit lg:sticky lg:top-8 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+        <h2 class="font-black text-xl uppercase">Cart (<span id="cart-count">0</span>)</h2>
+        <div id="cart-items" class="my-4 space-y-3 min-h-[60px] text-sm"></div>
+        <div class="border-t-2 border-black pt-3">
+          <h3 class="font-black text-xl">Total: KES <span id="cart-total">0</span></h3>
+        </div>
+        <button onclick="checkout()" class="w-full bg-black text-white py-3 rounded-full mt-4 font-bold hover:bg-zinc-800">Checkout — M-Pesa</button>
+        <button onclick="clearAll()" class="w-full bg-gray-100 py-2.5 rounded-full mt-2 text-sm">Clear Cart</button>
+        <p class="text-[10px] text-gray-500 mt-3 text-center">Pay via M-Pesa STK Push • Delivery in Bahati 24hrs</p>
+      </div>
+    </div>
+  </div>
+  <script src="08-shop.js"></script>
 </body>
 </html>
