@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ISANA - Bahati Drip | Day 9</title>
+<title>ISANA - Bahati Drip | Day 10 Admin</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="bg-[#f5f5f5] min-h-screen p-4 lg:p-8">
   <div class="max-w-7xl mx-auto">
-    <h1 class="text-4xl font-black">ISANA<span class="font-light">.</span> <span class="text-sm font-normal bg-black text-white px-2 py-1 rounded">BAHATI</span></h1>
+    <div class="flex justify-between items-center">
+      <h1 class="text-4xl font-black">ISANA<span class="font-light">.</span> <span class="text-sm font-normal bg-black text-white px-2 py-1 rounded">BAHATI</span></h1>
+      <button onclick="toggleAdmin()" id="adminBtn" class="text-xs border border-black px-3 py-1 rounded-full font-bold">Admin Login</button>
+    </div>
 
-    <!-- DAY 9: SEARCH + FILTER -->
+    <!-- SEARCH + FILTER -->
     <div class="flex flex-col sm:flex-row gap-3 my-6">
       <input id="search" oninput="filterShop()" placeholder="Search drip (e.g. hoodie)" class="flex-1 border-2 border-black p-3 rounded-full px-5 outline-none">
       <div class="flex gap-2">
@@ -18,6 +21,21 @@
         <button onclick="filterBy('Hoodie')" class="cat-btn bg-white border px-4 py-2 rounded-full text-sm">Hoodie</button>
         <button onclick="filterBy('Cap')" class="cat-btn bg-white border px-4 py-2 rounded-full text-sm">Cap</button>
       </div>
+    </div>
+
+    <!-- ADMIN PANEL (hidden by default) -->
+    <div id="adminPanel" class="hidden bg-white border-2 border-black p-5 rounded-2xl mb-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+      <h2 class="font-black text-lg mb-3">ADMIN - Add New Drip</h2>
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-2">
+        <input id="a_name" placeholder="Name: e.g. ISANA Jogger" class="border p-2 rounded-lg text-sm">
+        <input id="a_price" type="number" placeholder="Price: 2000" class="border p-2 rounded-lg text-sm">
+        <input id="a_stock" type="number" placeholder="Stock: 10" class="border p-2 rounded-lg text-sm">
+        <select id="a_cat" class="border p-2 rounded-lg text-sm"><option>T-shirt</option><option>Hoodie</option><option>Cap</option><option>Watch</option><option>Jogger</option></select>
+        <input id="a_img" placeholder="Image URL (https://...)" class="border p-2 rounded-lg text-sm col-span-2 lg:col-span-1">
+      </div>
+      <button onclick="addProduct()" class="bg-black text-white px-5 py-2 rounded-full text-sm font-bold mt-3">+ Add Product</button>
+      <button onclick="resetShop()" class="bg-red-50 border border-red-200 text-red-600 px-5 py-2 rounded-full text-sm ml-2">Reset to Default</button>
+      <p class="text-[11px] text-gray-500 mt-2">Tip: Paste Unsplash image link. Products save in browser (localStorage) — client can add without you.</p>
     </div>
 
     <div class="flex flex-col lg:flex-row gap-6">
@@ -33,6 +51,6 @@
       </div>
     </div>
   </div>
-  <script src="09-shop.js"></script>
+  <script src="10-shop.js"></script>
 </body>
 </html>
