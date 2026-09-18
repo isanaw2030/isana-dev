@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ISANA - Bahati Drip | Day 8</title>
+<title>ISANA - Bahati Drip | Day 9</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="bg-[#f5f5f5] min-h-screen p-4 lg:p-8">
   <div class="max-w-7xl mx-auto">
-    <h1 class="text-4xl font-black tracking-tight">ISANA<span class="font-light">.</span> <span class="text-sm font-normal bg-black text-white px-2 py-1 rounded">BAHATI</span></h1>
-    <p class="text-gray-600 mb-6">Premium streetwear - Made in Rift Valley</p>
+    <h1 class="text-4xl font-black">ISANA<span class="font-light">.</span> <span class="text-sm font-normal bg-black text-white px-2 py-1 rounded">BAHATI</span></h1>
+
+    <!-- DAY 9: SEARCH + FILTER -->
+    <div class="flex flex-col sm:flex-row gap-3 my-6">
+      <input id="search" oninput="filterShop()" placeholder="Search drip (e.g. hoodie)" class="flex-1 border-2 border-black p-3 rounded-full px-5 outline-none">
+      <div class="flex gap-2">
+        <button onclick="filterBy('all')" class="cat-btn bg-black text-white px-4 py-2 rounded-full text-sm font-bold">All</button>
+        <button onclick="filterBy('T-shirt')" class="cat-btn bg-white border px-4 py-2 rounded-full text-sm">T-shirt</button>
+        <button onclick="filterBy('Hoodie')" class="cat-btn bg-white border px-4 py-2 rounded-full text-sm">Hoodie</button>
+        <button onclick="filterBy('Cap')" class="cat-btn bg-white border px-4 py-2 rounded-full text-sm">Cap</button>
+      </div>
+    </div>
 
     <div class="flex flex-col lg:flex-row gap-6">
-      <!-- SHOP -->
       <div id="shop" class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-[2]"></div>
-
-      <!-- CART -->
       <div id="cart" class="bg-white border-2 border-black p-6 h-fit lg:sticky lg:top-8 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
         <h2 class="font-black text-xl uppercase">Cart (<span id="cart-count">0</span>)</h2>
         <div id="cart-items" class="my-4 space-y-3 min-h-[60px] text-sm"></div>
         <div class="border-t-2 border-black pt-3">
           <h3 class="font-black text-xl">Total: KES <span id="cart-total">0</span></h3>
         </div>
-        <button onclick="checkout()" class="w-full bg-black text-white py-3 rounded-full mt-4 font-bold hover:bg-zinc-800">Checkout — M-Pesa</button>
+        <button onclick="checkout()" class="w-full bg-green-600 text-white py-3 rounded-full mt-4 font-bold hover:bg-green-700">Order via WhatsApp</button>
         <button onclick="clearAll()" class="w-full bg-gray-100 py-2.5 rounded-full mt-2 text-sm">Clear Cart</button>
-        <p class="text-[10px] text-gray-500 mt-3 text-center">Pay via M-Pesa STK Push • Delivery in Bahati 24hrs</p>
       </div>
     </div>
   </div>
-  <script src="08-shop.js"></script>
+  <script src="09-shop.js"></script>
 </body>
 </html>
