@@ -1,56 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>ISANA - Bahati Drip | Day 10 Admin</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISANA - Bahati Drip | Final</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap');
+  body{font-family:'Space Grotesk',sans-serif;background:#f5f5f3}
+</style>
 </head>
-<body class="bg-[#f5f5f5] min-h-screen p-4 lg:p-8">
-  <div class="max-w-7xl mx-auto">
-    <div class="flex justify-between items-center">
-      <h1 class="text-4xl font-black">ISANA<span class="font-light">.</span> <span class="text-sm font-normal bg-black text-white px-2 py-1 rounded">BAHATI</span></h1>
-      <button onclick="toggleAdmin()" id="adminBtn" class="text-xs border border-black px-3 py-1 rounded-full font-bold">Admin Login</button>
-    </div>
+<body class="min-h-screen">
+<header class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
+  <h1 class="text-2xl font-bold tracking-tight">ISANA. <span class="bg-black text-white px-2 py-1 text-sm ml-1 rounded">BAHATI</span></h1>
+  <div class="flex gap-3">
+    <button onclick="openAdmin()" class="border border-black px-4 py-1.5 rounded-full text-xs font-bold">Admin Login</button>
+    <a href="#cart" class="bg-black text-white px-4 py-1.5 rounded-full text-xs">Cart (<span id="cart-count">0</span>)</a>
+  </div>
+</header>
 
-    <!-- SEARCH + FILTER -->
-    <div class="flex flex-col sm:flex-row gap-3 my-6">
-      <input id="search" oninput="filterShop()" placeholder="Search drip (e.g. hoodie)" class="flex-1 border-2 border-black p-3 rounded-full px-5 outline-none">
-      <div class="flex gap-2">
-        <button onclick="filterBy('all')" class="cat-btn bg-black text-white px-4 py-2 rounded-full text-sm font-bold">All</button>
-        <button onclick="filterBy('T-shirt')" class="cat-btn bg-white border px-4 py-2 rounded-full text-sm">T-shirt</button>
-        <button onclick="filterBy('Hoodie')" class="cat-btn bg-white border px-4 py-2 rounded-full text-sm">Hoodie</button>
-        <button onclick="filterBy('Cap')" class="cat-btn bg-white border px-4 py-2 rounded-full text-sm">Cap</button>
+<main class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 pb-10">
+  <div>
+    <div class="flex gap-2 mb-6 flex-wrap items-center">
+      <input id="searchInput" oninput="renderProducts()" placeholder="Search drip (e.g. cat tee)" class="flex-1 min-w-[200px] border-2 border-black rounded-full px-5 py-2.5 text-sm outline-none">
+      <div class="flex gap-2 flex-wrap">
+        <button onclick="filterCat('All')" id="cat-All" class="cat-btn bg-black text-white px-5 py-2.5 rounded-full text-xs">All</button>
+        <button onclick="filterCat('T-shirt')" id="cat-T-shirt" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">T-shirt</button>
+        <button onclick="filterCat('Cat Tee')" id="cat-Cat Tee" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">Cat Tee</button>
+        <button onclick="filterCat('Jogger')" id="cat-Jogger" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">Jogger</button>
+        <button onclick="filterCat('Hoodie')" id="cat-Hoodie" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">Hoodie</button>
+        <button onclick="filterCat('Cap')" id="cat-Cap" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">Cap</button>
       </div>
     </div>
+    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+  </div>
 
-    <!-- ADMIN PANEL (hidden by default) -->
-    <div id="adminPanel" class="hidden bg-white border-2 border-black p-5 rounded-2xl mb-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-      <h2 class="font-black text-lg mb-3">ADMIN - Add New Drip</h2>
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-2">
-        <input id="a_name" placeholder="Name: e.g. ISANA Jogger" class="border p-2 rounded-lg text-sm">
-        <input id="a_price" type="number" placeholder="Price: 2000" class="border p-2 rounded-lg text-sm">
-        <input id="a_stock" type="number" placeholder="Stock: 10" class="border p-2 rounded-lg text-sm">
-        <select id="a_cat" class="border p-2 rounded-lg text-sm"><option>T-shirt</option><option>Hoodie</option><option>Cap</option><option>Watch</option><option>Jogger</option></select>
-        <input id="a_img" placeholder="Image URL (https://...)" class="border p-2 rounded-lg text-sm col-span-2 lg:col-span-1">
-      </div>
-      <button onclick="addProduct()" class="bg-black text-white px-5 py-2 rounded-full text-sm font-bold mt-3">+ Add Product</button>
-      <button onclick="resetShop()" class="bg-red-50 border border-red-200 text-red-600 px-5 py-2 rounded-full text-sm ml-2">Reset to Default</button>
-      <p class="text-[11px] text-gray-500 mt-2">Tip: Paste Unsplash image link. Products save in browser (localStorage) — client can add without you.</p>
-    </div>
-
-    <div class="flex flex-col lg:flex-row gap-6">
-      <div id="shop" class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-[2]"></div>
-      <div id="cart" class="bg-white border-2 border-black p-6 h-fit lg:sticky lg:top-8 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-        <h2 class="font-black text-xl uppercase">Cart (<span id="cart-count">0</span>)</h2>
-        <div id="cart-items" class="my-4 space-y-3 min-h-[60px] text-sm"></div>
-        <div class="border-t-2 border-black pt-3">
-          <h3 class="font-black text-xl">Total: KES <span id="cart-total">0</span></h3>
-        </div>
-        <button onclick="checkout()" class="w-full bg-green-600 text-white py-3 rounded-full mt-4 font-bold hover:bg-green-700">Order via WhatsApp</button>
-        <button onclick="clearAll()" class="w-full bg-gray-100 py-2.5 rounded-full mt-2 text-sm">Clear Cart</button>
-      </div>
+  <div id="cart" class="bg-white border-2 border-black rounded-2xl p-5 h-fit sticky top-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+    <h2 class="font-bold">CART (<span id="cart-count-2">0</span>)</h2>
+    <div id="cart-items" class="mt-4 space-y-3 min-h-[60px]"><p class="text-xs text-gray-400">Cart empty. Add some drip.</p></div>
+    <div class="border-t-2 border-black mt-6 pt-4">
+      <p class="font-bold">Total: KES <span id="cart-total">0</span></p>
+      <button onclick="checkout()" class="mt-3 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-full font-bold text-sm">Order via WhatsApp + Receipt</button>
+      <button onclick="clearCart()" class="mt-2 w-full bg-gray-100 py-2.5 rounded-full text-xs">Clear Cart</button>
+      <p class="text-[10px] text-gray-500 mt-3">M-Pesa Till: <span class="font-bold">3232243</span> | Pay on delivery in Kisumu</p>
     </div>
   </div>
-  <script src="10-shop.js"></script>
+</main>
+
+<!-- Admin Modal -->
+<div id="admin-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+  <div class="bg-white w-full max-w-md p-6 rounded-2xl border-2 border-black">
+    <div class="flex justify-between items-center mb-4"><h2 class="font-bold">Shop Admin</h2><button onclick="closeAdmin()" class="text-2xl">&times;</button></div>
+    <div id="admin-login"><input id="admin-pass" type="password" placeholder="Password isana2026" class="w-full border-2 border-black p-2.5 rounded-xl mb-2 text-sm"><button onclick="loginAdmin()" class="w-full bg-black text-white py-2.5 rounded-full text-sm">Login</button></div>
+    <div id="admin-panel" class="hidden">
+      <input id="p-name" placeholder="Product Name e.g. ISANA Cat Tee" class="w-full border p-2 rounded-lg mb-2 text-sm">
+      <input id="p-price" type="number" placeholder="Price KES" class="w-full border p-2 rounded-lg mb-2 text-sm">
+      <input id="p-image" placeholder="Image URL https://..." class="w-full border p-2 rounded-lg mb-2 text-sm">
+      <select id="p-category" class="w-full border p-2 rounded-lg mb-2 text-sm">
+        <option>T-shirt</option>
+        <option>Cat Tee</option>
+        <option>Jogger</option>
+        <option>Hoodie</option>
+        <option>Cap</option>
+        <option>Watch</option>
+        <option>Dress</option>
+      </select>
+      <input id="p-stock" type="number" placeholder="Stock e.g. 10" class="w-full border p-2 rounded-lg mb-2 text-sm">
+      <button onclick="addProduct()" class="w-full bg-black text-white py-2.5 rounded-full text-sm font-bold">Add Product</button>
+      <div id="admin-list" class="mt-4 space-y-1 max-h-48 overflow-auto border-t pt-2"></div>
+    </div>
+  </div>
+</div>
+
+<script src="shop.js"></script>
 </body>
 </html>
