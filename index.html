@@ -66,7 +66,7 @@ if(cart.length===0)el.innerHTML='<p class="text-xs text-gray-400">Cart empty. Ad
 let total=cart.reduce((s,c)=>s+c.price*c.qty,0);let count=cart.reduce((s,c)=>s+c.qty,0);tot.textContent=total;c1.textContent=count;c2.textContent=count;
 }
 function clearCart(){cart=[];localStorage.removeItem('isana_cart');renderCart();}
-function checkout(){if(!cart.length){alert('Cart empty');return;}let t=cart.reduce((s,c)=>s+c.price*c.qty,0);let m=`ISANA ORDER%0A`;cart.forEach(c=>m+=`${c.name} x${c.qty}=${c.price*c.qty}%0A`);m+=`Total KES ${t}%0ATill 3232243`;window.open(`https://wa.me/254758589094?text=${m}`,'_blank');}
+function checkout(){if(!cart.length){alert('Cart empty');return;}let t=cart.reduce((s,c)=>s+c.price*c.qty,0);let m=`ISANA ORDER%0A`;cart.forEach(c=>m+=`${c.name} x${c.qty}=${c.price*c.qty}%0A`);m+=`Total KES ${t}%0ATill 3232243`;window.open(`https://wa.me/254113662877?text=${m}`,'_blank');}
 function openAdmin(){}
 document.addEventListener('DOMContentLoaded',()=>{renderProducts();renderCart();});
 </script>
