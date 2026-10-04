@@ -1,77 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ISANA - Bahati Drip | Final</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap');
-  body{font-family:'Space Grotesk',sans-serif;background:#f5f5f3}
-</style>
+<style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap');body{font-family:'Space Grotesk',sans-serif;background:#f5f5f3}</style>
 </head>
 <body class="min-h-screen">
 <header class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
-  <h1 class="text-2xl font-bold tracking-tight">ISANA. <span class="bg-black text-white px-2 py-1 text-sm ml-1 rounded">BAHATI</span></h1>
-  <div class="flex gap-3">
-    <button onclick="openAdmin()" class="border border-black px-4 py-1.5 rounded-full text-xs font-bold">Admin Login</button>
-    <a href="#cart" class="bg-black text-white px-4 py-1.5 rounded-full text-xs">Cart (<span id="cart-count">0</span>)</a>
-  </div>
+<h1 class="text-2xl font-bold">ISANA. <span class="bg-black text-white px-2 py-1 text-sm ml-1 rounded">BAHATI</span></h1>
+<div class="flex gap-3">
+<button onclick="openAdmin()" class="border border-black px-4 py-1.5 rounded-full text-xs font-bold">Admin Login</button>
+<a href="#cart" class="bg-black text-white px-4 py-1.5 rounded-full text-xs">Cart (<span id="cart-count">0</span>)</a>
+</div>
 </header>
-
 <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 pb-10">
-  <div>
-    <div class="flex gap-2 mb-6 flex-wrap items-center">
-      <input id="searchInput" oninput="renderProducts()" placeholder="Search drip (e.g. cat tee)" class="flex-1 min-w-[200px] border-2 border-black rounded-full px-5 py-2.5 text-sm outline-none">
-      <div class="flex gap-2 flex-wrap">
-        <button onclick="filterCat('All')" id="cat-All" class="cat-btn bg-black text-white px-5 py-2.5 rounded-full text-xs">All</button>
-        <button onclick="filterCat('T-shirt')" id="cat-T-shirt" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">T-shirt</button>
-        <button onclick="filterCat('Cat Tee')" id="cat-Cat Tee" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">Cat Tee</button>
-        <button onclick="filterCat('Jogger')" id="cat-Jogger" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">Jogger</button>
-        <button onclick="filterCat('Hoodie')" id="cat-Hoodie" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">Hoodie</button>
-        <button onclick="filterCat('Cap')" id="cat-Cap" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">Cap</button>
-      </div>
-    </div>
-    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
-  </div>
-
-  <div id="cart" class="bg-white border-2 border-black rounded-2xl p-5 h-fit sticky top-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-    <h2 class="font-bold">CART (<span id="cart-count-2">0</span>)</h2>
-    <div id="cart-items" class="mt-4 space-y-3 min-h-[60px]"><p class="text-xs text-gray-400">Cart empty. Add some drip.</p></div>
-    <div class="border-t-2 border-black mt-6 pt-4">
-      <p class="font-bold">Total: KES <span id="cart-total">0</span></p>
-      <button onclick="checkout()" class="mt-3 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-full font-bold text-sm">Order via WhatsApp + Receipt</button>
-      <button onclick="clearCart()" class="mt-2 w-full bg-gray-100 py-2.5 rounded-full text-xs">Clear Cart</button>
-      <p class="text-[10px] text-gray-500 mt-3">M-Pesa Till: <span class="font-bold">3232243</span> | Pay on delivery in Kisumu</p>
-    </div>
-  </div>
+<div>
+<div class="flex gap-2 mb-6 flex-wrap items-center">
+<input id="searchInput" oninput="renderProducts()" placeholder="Search drip (e.g. cat tee)" class="flex-1 min-w-[200px] border-2 border-black rounded-full px-5 py-2.5 text-sm outline-none">
+<div class="flex gap-2 flex-wrap">
+<button onclick="filterCat('All')" id="cat-All" class="cat-btn bg-black text-white px-5 py-2.5 rounded-full text-xs">All</button>
+<button onclick="filterCat('T-shirt')" id="cat-T-shirt" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">T-shirt</button>
+<button onclick="filterCat('Cat Tee')" id="cat-Cat Tee" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">Cat Tee</button>
+<button onclick="filterCat('Jogger')" id="cat-Jogger" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">Jogger</button>
+<button onclick="filterCat('Hoodie')" id="cat-Hoodie" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">Hoodie</button>
+<button onclick="filterCat('Cap')" id="cat-Cap" class="cat-btn bg-white border px-5 py-2.5 rounded-full text-xs">Cap</button>
+</div>
+</div>
+<div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+</div>
+<div id="cart" class="bg-white border-2 border-black rounded-2xl p-5 h-fit sticky top-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+<h2 class="font-bold">CART (<span id="cart-count-2">0</span>)</h2>
+<div id="cart-items" class="mt-4 space-y-3 min-h-[60px]"><p class="text-xs text-gray-400">Cart empty. Add some drip.</p></div>
+<div class="border-t-2 border-black mt-6 pt-4">
+<p class="font-bold">Total: KES <span id="cart-total">0</span></p>
+<button onclick="checkout()" class="mt-3 w-full bg-green-600 text-white py-3 rounded-full font-bold text-sm">Order via WhatsApp + Receipt</button>
+<button onclick="clearCart()" class="mt-2 w-full bg-gray-100 py-2.5 rounded-full text-xs">Clear Cart</button>
+<p class="text-[10px] text-gray-500 mt-3">M-Pesa Till: <b>3232243</b> | Pay on delivery in Kisumu</p>
+</div>
+</div>
 </main>
 
-<!-- Admin Modal -->
-<div id="admin-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-  <div class="bg-white w-full max-w-md p-6 rounded-2xl border-2 border-black">
-    <div class="flex justify-between items-center mb-4"><h2 class="font-bold">Shop Admin</h2><button onclick="closeAdmin()" class="text-2xl">&times;</button></div>
-    <div id="admin-login"><input id="admin-pass" type="password" placeholder="Password isana2026" class="w-full border-2 border-black p-2.5 rounded-xl mb-2 text-sm"><button onclick="loginAdmin()" class="w-full bg-black text-white py-2.5 rounded-full text-sm">Login</button></div>
-    <div id="admin-panel" class="hidden">
-      <input id="p-name" placeholder="Product Name e.g. ISANA Cat Tee" class="w-full border p-2 rounded-lg mb-2 text-sm">
-      <input id="p-price" type="number" placeholder="Price KES" class="w-full border p-2 rounded-lg mb-2 text-sm">
-      <input id="p-image" placeholder="Image URL https://..." class="w-full border p-2 rounded-lg mb-2 text-sm">
-      <select id="p-category" class="w-full border p-2 rounded-lg mb-2 text-sm">
-        <option>T-shirt</option>
-        <option>Cat Tee</option>
-        <option>Jogger</option>
-        <option>Hoodie</option>
-        <option>Cap</option>
-        <option>Watch</option>
-        <option>Dress</option>
-      </select>
-      <input id="p-stock" type="number" placeholder="Stock e.g. 10" class="w-full border p-2 rounded-lg mb-2 text-sm">
-      <button onclick="addProduct()" class="w-full bg-black text-white py-2.5 rounded-full text-sm font-bold">Add Product</button>
-      <div id="admin-list" class="mt-4 space-y-1 max-h-48 overflow-auto border-t pt-2"></div>
-    </div>
-  </div>
-</div>
+<script>
 
-<script src="shop.js"></script>
+let defaultProducts=[
+{id:1,name:"ISANA Classic Tee",category:"T-shirt",price:1200,stock:15,image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"},
+{id:2,name:"ISANA Hoodie",category:"Hoodie",price:2500,stock:10,image:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600"},
+{id:3,name:"ISANA Cap",category:"Cap",price:800,stock:20,image:"https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600"},
+{id:4,name:"Cat Tee ORIGINAL",category:"Cat Tee",price:1800,stock:8,image:"https://images.unsplash.com/photo-1571513800374-df1bbe650e56?w=600"},
+{id:5,name:"ISANA Jogger Black",category:"Jogger",price:1800,stock:10,image:"https://i.postimg.cc/GtRKw20V/image.png"}
+];
+let products=defaultProducts;
+let cart=JSON.parse(localStorage.getItem('isana_cart')||'[]');
+let currentFilter='All';
+function filterCat(c){currentFilter=c;document.querySelectorAll('.cat-btn').forEach(b=>{b.className=b.id==='cat-'+c?'cat-btn bg-black text-white px-5 py-2.5 rounded-full text-xs':'cat-btn bg-white border px-5 py-2.5 rounded-full text-xs'});renderProducts();}
+function renderProducts(){
+let grid=document.getElementById('product-grid');let q=(document.getElementById('searchInput').value||'').toLowerCase();
+let f=products.filter(p=>{let okCat=currentFilter==='All'||p.category===currentFilter;let okQ=!q||p.name.toLowerCase().includes(q);return okCat&&okQ;});
+grid.innerHTML=f.map(p=>`<div class="bg-white border-2 border-black rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"><img src="${p.image}" class="w-full h-64 object-cover"><div class="p-4"><h3 class="font-bold text-sm">${p.name}</h3><p class="text-xs text-gray-500">${p.category} | KES ${p.price}</p><button onclick="addToCart(${p.id})" class="mt-3 bg-black text-white px-4 py-1.5 rounded-full text-xs w-full">Add</button></div></div>`).join('');
+}
+function addToCart(id){let it=products.find(p=>p.id===id);let ex=cart.find(c=>c.id===id);if(ex)ex.qty++;else cart.push({...it,qty:1});localStorage.setItem('isana_cart',JSON.stringify(cart));renderCart();}
+function renderCart(){
+let el=document.getElementById('cart-items');let tot=document.getElementById('cart-total');let c1=document.getElementById('cart-count');let c2=document.getElementById('cart-count-2');
+if(cart.length===0)el.innerHTML='<p class="text-xs text-gray-400">Cart empty. Add some drip.</p>';else el.innerHTML=cart.map(c=>`<div class="flex justify-between text-sm"><span>${c.name} x${c.qty}</span><span>KES ${c.price*c.qty}</span></div>`).join('');
+let total=cart.reduce((s,c)=>s+c.price*c.qty,0);let count=cart.reduce((s,c)=>s+c.qty,0);tot.textContent=total;c1.textContent=count;c2.textContent=count;
+}
+function clearCart(){cart=[];localStorage.removeItem('isana_cart');renderCart();}
+function checkout(){if(!cart.length){alert('Cart empty');return;}let t=cart.reduce((s,c)=>s+c.price*c.qty,0);let m=`ISANA ORDER%0A`;cart.forEach(c=>m+=`${c.name} x${c.qty}=${c.price*c.qty}%0A`);m+=`Total KES ${t}%0ATill 3232243`;window.open(`https://wa.me/254758589094?text=${m}`,'_blank');}
+function openAdmin(){}
+document.addEventListener('DOMContentLoaded',()=>{renderProducts();renderCart();});
+</script>
 </body>
 </html>
